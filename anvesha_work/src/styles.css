@@ -1,0 +1,110 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ANVESHA design system.
+ * Warm Indian fintech: deep teal brand, soft orange for savings/goals,
+ * cream + white surfaces. All colors are oklch tokens.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-surface: var(--surface);
+  --color-turquoise: var(--turquoise);
+  --color-cream: var(--cream);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: 0 2px 10px -2px oklch(0.38 0.06 190 / 0.1);
+  --shadow-float: 0 10px 30px -8px oklch(0.38 0.06 190 / 0.28);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.985 0.012 80);
+  --foreground: oklch(0.29 0.028 195);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.29 0.028 195);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.29 0.028 195);
+  --primary: oklch(0.53 0.083 180);
+  --primary-foreground: oklch(1 0 0);
+  --primary-deep: oklch(0.38 0.06 190);
+  --secondary: oklch(0.95 0.025 175);
+  --secondary-foreground: oklch(0.38 0.06 190);
+  --muted: oklch(0.968 0.003 175);
+  --muted-foreground: oklch(0.52 0.02 195);
+  --accent: oklch(0.72 0.14 51);
+  --accent-foreground: oklch(1 0 0);
+  --accent-soft: oklch(0.945 0.035 66);
+  --surface: oklch(0.968 0.003 175);
+  --turquoise: oklch(0.95 0.025 175);
+  --cream: oklch(0.985 0.012 80);
+  --success: oklch(0.6 0.11 160);
+  --destructive: oklch(0.577 0.19 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.008 180);
+  --input: oklch(0.92 0.008 180);
+  --ring: oklch(0.53 0.083 180);
+  --gradient-brand: linear-gradient(135deg, oklch(0.53 0.083 180), oklch(0.38 0.06 190));
+  --gradient-warm: linear-gradient(135deg, oklch(0.75 0.13 55), oklch(0.68 0.15 40));
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: oklch(0.955 0.008 180);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility bg-brand-gradient {
+  background-image: var(--gradient-brand);
+}
+
+@utility bg-warm-gradient {
+  background-image: var(--gradient-warm);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+@keyframes anvi-float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-5px) rotate(1deg); } }
+.animate-anvi-float { animation: anvi-float 2.6s ease-in-out infinite; }
